@@ -6,7 +6,7 @@
 
 .game-board {
     width: 100%;
-    height: 500px;
+    height: 100vh;
     border-bottom: 16px solid rgb(28, 119, 10);
     margin: 0 auto;
     position: relative;

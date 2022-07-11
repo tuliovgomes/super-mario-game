@@ -33,6 +33,9 @@ const waitingFailure = () => {
         gameOver.style.display = 'block';
 
         clearInterval(loop);
+
+        document.removeEventListener('keydown', jump);
+        document.removeEventListener('touchstart', jump);
     }
 };
 
@@ -50,9 +53,14 @@ const restartGame = function () {
     pipe.style.left = 'auto';
     pipe.style.animation = 'pipe-animation 1s infinite linear';
 
+    document.addEventListener('keydown', jump);
+    document.addEventListener('touchstart', jump);
+
     loop = setInterval(waitingFailure, 10);
 };
 
-document.querySelector('.retry').addEventListener('click', restartGame);
-document.addEventListener('keydown', jump);
+document.querySelector('.retry')
+    .addEventListener('click', restartGame);
+
+document.querySelector('.game-board').addEventListener('keydown', jump);
 document.querySelector('.game-board').addEventListener('touchstart', jump);
