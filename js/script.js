@@ -55,4 +55,4 @@ const restartGame = function () {
 
 document.querySelector('.retry').addEventListener('click', restartGame);
 document.addEventListener('keydown', jump);
-document.addEventListener('touchstart', jump);
+document.querySelector('.game-board').addEventListener('touchstart', jump);
