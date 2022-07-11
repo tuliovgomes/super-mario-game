@@ -22,11 +22,40 @@
     height: 112px;
 }
 
+.game-over {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    border: 5px dashed black;
+    background-color: white;
+    text-align: center;
+    width: 250px;
+    height: 150px;
+    display: none;
+}
+
+.game-over > p {
+    margin: 15px;
+    font-size: 25px;
+    font-family: monospace;
+}
+
+.retry {
+    background: none;
+	color: inherit;
+	padding: 3px 5px;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    margin: 15px;
+    font-size: 20px;
+    font-family: monospace;
+}
+
 .mario {
     position: absolute;
     bottom: 0;
     width: 150px;
-
 }
 
 .jump {
