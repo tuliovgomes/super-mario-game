@@ -35,6 +35,40 @@
     transform: translate(-50%, -50%);
 }
 
+.score {
+    font-family: monospace;
+    font-size: 20px;
+
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    border: 3px dashed black;
+    padding: 10px;
+    background-color: white;
+    text-align: right;
+    width: 150px;
+    height: 50px;
+    display: block;
+    z-index: 1;
+}
+
+.high-score {
+    font-family: monospace;
+    font-size: 20px;
+
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    border: 3px dashed black;
+    padding: 10px;
+    background-color: white;
+    text-align: right;
+    width: 150px;
+    height: 50px;
+    display: block;
+    z-index: 1;
+}
+
 .game-over > p {
     margin: 15px;
     font-size: 25px;
