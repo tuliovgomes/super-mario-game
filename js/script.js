@@ -39,7 +39,10 @@ var highScoreValue = getCookie('high-score');
 highScore.textContent = getCookie('high-score');
 
 const jump = () => {
-    if (gameOver.style.display === 'block') {
+    if (
+        gameOver.style.display === 'block'
+        || mario.classList.contains('jump')
+    ) {
         return;
     }
 
