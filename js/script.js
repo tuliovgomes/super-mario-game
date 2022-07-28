@@ -1,7 +1,11 @@
 const mario = document.querySelector('.mario');
 const pipe = document.querySelector('.pipe');
+const turtle = document.querySelector('.turtle');
+const bullet = document.querySelector('.bullet');
+const clouds = document.querySelector('.clouds');
 const gameOver = document.querySelector('.game-over');
 const score = document.querySelector('.score');
+const gameBoard = document.getElementById('game-board');
 const highScore = document.querySelector('#high-score');
 
 const setCookie = function (name, value, expirationDays) {
@@ -73,23 +77,35 @@ const jump = () => {
             mario.src = './images/mario-pro.gif';
             mario.style.width = '150px';
         }
-    }, 500);
+    }, 800);
 }
 
 const waitingFailure = () => {
     const pipePosition = pipe.offsetLeft;
+    const turtlePosition = turtle.offsetLeft;
+    const bulletPosition = bullet.offsetLeft;
+    const cloudsPosition = clouds.offsetLeft;
     const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '');
 
     if (
-        pipePosition <= 120
-        && pipePosition > 0
+        (pipePosition <= 100 || turtlePosition <= 100 || bulletPosition <= 100)
+        && (pipePosition > 0 || turtlePosition > 0 || bulletPosition > 0)
         && marioPosition < 112
     ) {
         mario.style.animationPlayState = 'paused';
         mario.style.bottom = `${marioPosition}px`;
 
+        clouds.style.animation = 'none';
+        clouds.style.left = `${cloudsPosition}px`;
+
         pipe.style.animation = 'none';
         pipe.style.left = `${pipePosition}px`;
+
+        turtle.style.animation = 'none';
+        turtle.style.left = `${turtlePosition}px`;
+
+        bullet.style.animation = 'none';
+        bullet.style.left = `${bulletPosition}px`;
 
         mario.src = './images/game-over.png';
         mario.style.width = '75px';
@@ -101,6 +117,7 @@ const waitingFailure = () => {
 
         document.removeEventListener('keydown', jump);
         document.removeEventListener('touchstart', jump);
+        gameBoard.classList.add('game-board-over');
     }
 };
 
@@ -124,14 +141,25 @@ var loop = setInterval(waitingFailure, 10);
 const restartGame = function () {
     gameOver.style.display = 'none';
 
+    gameBoard.classList.remove('game-board-over');
+
     mario.style.animationPlayState = 'running';
     mario.src = './images/mario-starter.gif';
     mario.style.width = '75px';
     mario.style.marginLeft = '0';
     mario.style.bottom = '0';
 
+    clouds.style.left = 'auto';
+    clouds.style.animation = 'clouds-animation 20s infinite linear';
+
     pipe.style.left = 'auto';
-    pipe.style.animation = 'pipe-animation 1s infinite linear';
+    pipe.style.animation = 'pipe-animation 4s infinite linear';
+
+    turtle.style.left = 'auto';
+    turtle.style.animation = 'turtle-animation 36s infinite linear';
+
+    bullet.style.left = 'auto';
+    bullet.style.animation = 'bullet-animation 128s infinite linear';
 
     scoreValue = 0;
     score.textContent = scoreValue;
