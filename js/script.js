@@ -35,6 +35,8 @@ const getCookie = function (name) {
 
 var scoreValue = -1;
 var highScoreValue = getCookie('high-score');
+var beginnerLevel = 8;
+var proLevel = 16;
 
 highScore.textContent = getCookie('high-score');
 
@@ -49,6 +51,14 @@ const jump = () => {
     mario.classList.add('jump');
 
     scoreValue += 1;
+
+    levelPass();
+
+    if(scoreValue >= proLevel) {
+        mario.src = './images/mario-flying.gif';
+        mario.style.width = '100px';
+    }
+
     score.textContent = scoreValue;
 
     if (highScoreValue < scoreValue) {
@@ -59,6 +69,10 @@ const jump = () => {
 
     setTimeout(() => {
         mario.classList.remove('jump');
+        if(scoreValue >= proLevel) {
+            mario.src = './images/mario-pro.gif';
+            mario.style.width = '150px';
+        }
     }, 500);
 }
 
@@ -90,14 +104,29 @@ const waitingFailure = () => {
     }
 };
 
+levelPass = () => {
+ switch (scoreValue) {
+    case beginnerLevel:
+        mario.src = './images/mario-beginner.gif';
+        mario.style.width = '125px';
+        break;
+    case proLevel:
+        mario.src = './images/mario-pro.gif';
+        mario.style.width = '150px';
+        break;
+    default:
+        break;
+ }
+};
+
 var loop = setInterval(waitingFailure, 10);
 
 const restartGame = function () {
     gameOver.style.display = 'none';
 
     mario.style.animationPlayState = 'running';
-    mario.src = './images/mario.gif';
-    mario.style.width = '150px';
+    mario.src = './images/mario-starter.gif';
+    mario.style.width = '75px';
     mario.style.marginLeft = '0';
     mario.style.bottom = '0';
 
