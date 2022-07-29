@@ -8,6 +8,10 @@ const score = document.querySelector('.score');
 const gameBoard = document.getElementById('game-board');
 const highScore = document.querySelector('#high-score');
 
+var musicGame = new Audio('/sound/game.mp3');
+    musicGame.play();
+    musicGame.loop =true;
+
 const setCookie = function (name, value, expirationDays) {
     const date = new Date();
     date.setTime(date.getTime() + (expirationDays * 24 * 60 * 60 * 1000));
@@ -52,6 +56,9 @@ const jump = () => {
         return;
     }
 
+    const musicJump = new Audio('sound/jump.wav');
+    musicJump.play();
+
     mario.classList.add('jump');
 
     scoreValue += 1;
@@ -92,6 +99,10 @@ const waitingFailure = () => {
         && (pipePosition > 0 || turtlePosition > 0 || bulletPosition > 0)
         && marioPosition < 112
     ) {
+        musicGame.pause();
+        musicGame = new Audio('sound/mariodie.wav');
+        musicGame.play();
+
         mario.style.animationPlayState = 'paused';
         mario.style.bottom = `${marioPosition}px`;
 
@@ -166,6 +177,10 @@ const restartGame = function () {
 
     document.addEventListener('keydown', jump);
     document.addEventListener('touchstart', jump);
+
+    musicGame = new Audio('sound/game.mp3');
+    musicGame.play();
+    musicGame.loop =true;
 
     loop = setInterval(waitingFailure, 10);
 };
