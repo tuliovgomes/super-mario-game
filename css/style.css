@@ -61,6 +61,19 @@
     transform: translate(-50%, -50%);
 }
 
+.game-starter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 5px dashed black;
+    background-color: white;
+    text-align: center;
+    width: 250px;
+    height: 150px;
+    display: none;
+    transform: translate(-50%, -50%);
+}
+
 .score {
     font-family: monospace;
     font-size: 20px;
@@ -96,6 +109,12 @@
 }
 
 .game-over > p {
+    margin: 15px;
+    font-size: 25px;
+    font-family: monospace;
+}
+
+.game-starter > p {
     margin: 15px;
     font-size: 25px;
     font-family: monospace;
