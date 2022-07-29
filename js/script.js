@@ -56,7 +56,7 @@ const jump = () => {
         return;
     }
 
-    const musicJump = new Audio('sound/jump.wav');
+    var musicJump = new Audio('sound/jump.wav');
     musicJump.play();
 
     mario.classList.add('jump');
@@ -137,10 +137,16 @@ levelPass = () => {
     case beginnerLevel:
         mario.src = './images/mario-beginner.gif';
         mario.style.width = '125px';
+
+        var musicUp = new Audio('sound/powerup.wav');
+        musicUp.play();
         break;
     case proLevel:
         mario.src = './images/mario-pro.gif';
         mario.style.width = '150px';
+
+        var musicUp = new Audio('sound/powerup.wav');
+        musicUp.play();
         break;
     default:
         break;

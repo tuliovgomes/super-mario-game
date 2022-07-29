@@ -131,7 +131,7 @@
 
 @keyframes pipe-animation {
     from {
-        right: -80px;
+        right: -1500px;
     }
     to {
         right: 100%
@@ -140,7 +140,7 @@
 
 @keyframes turtle-animation {
     from {
-        right: -80px;
+        right: -3000px;
     }
     to {
         right: 100%
@@ -149,7 +149,7 @@
 
 @keyframes bullet-animation {
     from {
-        right: -80px;
+        right: -4500px;
     }
     to {
         right: 100%
