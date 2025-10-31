@@ -11,7 +11,7 @@
     <title>Super Mario Game</title>
 </head>
 <body>
-    <div class="game-board" id='game-board'>
+    <div class="game-board">
         <div class="score">0</div>
         <div class="high-score">
             HI
@@ -19,20 +19,13 @@
         </div>
 
         <img src="./images/clouds.png" class="clouds">
-        <img src="./images/mario-starter.gif" class="mario">
+        <img src="./images/mario.gif" class="mario">
         <img src="./images/pipe.png" class="pipe">
-        <img src="./images/turtle.gif" class="turtle">
-        <img src="./images/bullet.png" class="bullet">
     </div>
 
     <div class="game-over">
         <p>Game over!</p>
-        <button onclick="restartGame" class="retry">Retry now</button>
-    </div>
-
-    <div class="game-starter">
-        <p>Press to start!</p>
-        <button onclick="restartGame()" class="retry">Play</button>
+        <button class="retry">Retry now</button>
     </div>
 </body>
 </html>

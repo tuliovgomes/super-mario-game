@@ -14,54 +14,15 @@
     background: linear-gradient(#46beee, #e0f6ff);
 }
 
-.game-board-over {
-    width: 100%;
-    height: 100vh;
-    border-bottom: 16px solid rgb(28, 119, 10);
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(#1f1717, #8f2121);
-}
-
 .pipe {
     position: absolute;
     bottom: 0;
     width: 80px;
-    animation: pipe-animation 4s infinite linear;
-    height: 112px;
-}
-
-.turtle {
-    position: absolute;
-    bottom: 0;
-    width: 80px;
-    animation: turtle-animation 36s infinite linear;
-    height: 112px;
-}
-
-.bullet {
-    position: absolute;
-    bottom: 0;
-    width: 80px;
-    animation: bullet-animation 128s infinite linear;
+    animation: pipe-animation 1s infinite linear;
     height: 112px;
 }
 
 .game-over {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    border: 5px dashed black;
-    background-color: white;
-    text-align: center;
-    width: 250px;
-    height: 150px;
-    display: none;
-    transform: translate(-50%, -50%);
-}
-
-.game-starter {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -114,12 +75,6 @@
     font-family: monospace;
 }
 
-.game-starter > p {
-    margin: 15px;
-    font-size: 25px;
-    font-family: monospace;
-}
-
 .retry {
     background: none;
 	color: inherit;
@@ -135,11 +90,11 @@
 .mario {
     position: absolute;
     bottom: 0;
-    width: 75px;
+    width: 150px;
 }
 
 .jump {
-    animation: jump 800ms infinite ease-out;
+    animation: jump 500ms infinite ease-out;
 }
 
 .clouds {
@@ -150,25 +105,7 @@
 
 @keyframes pipe-animation {
     from {
-        right: -1500px;
-    }
-    to {
-        right: 100%
-    }
-}
-
-@keyframes turtle-animation {
-    from {
-        right: -3000px;
-    }
-    to {
-        right: 100%
-    }
-}
-
-@keyframes bullet-animation {
-    from {
-        right: -4500px;
+        right: -80px;
     }
     to {
         right: 100%
